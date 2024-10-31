@@ -21,15 +21,26 @@ const NewPost: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState<PostType>({
-    title:'',
-    description:'',
-    imageUrl: "",
+    title: '',
+    description: '',
+    featureImg: '',
+    postFormat: '',
+    // slidePost?: boolean;
+    date: '', // Assuming date as string for easier serialization, can be Date if handled as Date objects
+    slug: "",
+    // featured?: boolean;
+
   });
 
   const fieldTypes: { [key in keyof PostType]: string } = {
-    title:"text",
-    description:"text",
-    imageUrl: "text",
+    title: "text",
+    description: "text",
+    featureImg: 'text',
+    postFormat: 'text',
+    // slidePost?: boolean;
+    date: 'text', // Assuming date as string for easier serialization, can be Date if handled as Date objects
+    slug: "text",
+    // featured?: boolean;
   };
 
   const [errors, setErrors] = useState<Partial<PostType>>({});
@@ -44,7 +55,7 @@ const NewPost: React.FC = () => {
     const formErrors: Partial<PostType> = {};
     Object.keys(formData).forEach((key) => {
       if (!formData[key as keyof PostType]) {
-        formErrors[key as keyof PostType] = "This field is required";
+        formErrors[key as keyof any ] = "This field is required";
       }
     });
 

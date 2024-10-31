@@ -1,14 +1,19 @@
 export enum PostServerTypes {
   GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS',
   GET_POST_SUCCESS = 'GET_POST_SUCCESS',
-  DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS'
+  DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS',
 }
 
 export interface PostType {
   id?: string;
-  title: string;
-  description: string;
-  imageUrl?: string;
+  title?: string;
+  description?: string;
+  featureImg?: string;
+  postFormat?: string;
+  slidePost?: boolean;
+  date?: string; // Assuming date as string for easier serialization, can be Date if handled as Date objects
+  slug?: string;
+  featured?: boolean;
 }
 
 export interface PostState {

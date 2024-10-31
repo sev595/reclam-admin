@@ -18,12 +18,7 @@ type PostProps = {
 };
 
 const PostContainer: React.FC<PostProps> = ({ post }) => {
-  let images: string[] = [""];
-  if (post?.imageUrl) {
-    images = post?.imageUrl
-      .split(";")
-      .filter((item: any) => item !== "undefined");
-  }
+
 
   return (
     <>
@@ -41,7 +36,7 @@ const PostContainer: React.FC<PostProps> = ({ post }) => {
       <Box sx={{ flexGrow: 1, bgcolor: "background.paper", py: 4 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <Slideshow images={images} />
+            {/* <Slideshow images={images} /> */}
           </Grid>
           <Grid item xs={12} md={6}>
             <Card>
@@ -55,6 +50,19 @@ const PostContainer: React.FC<PostProps> = ({ post }) => {
                 </Typography>
                 <Typography variant="body1" color="text.secondary" paragraph>
                   <strong> Description:</strong> {post?.description || "-"}
+                </Typography>
+
+                <Typography variant="h5" component="div" gutterBottom>
+                  <strong> Post Date:</strong>  {post?.date || "Post Date"}
+                </Typography>
+                <Typography variant="h5" component="div" gutterBottom>
+                  <strong> Post featured:</strong>    {post?.featured || "Post featured"}
+                </Typography>
+                <Typography variant="h5" component="div" gutterBottom>
+                  <strong> Post slug:</strong>    {post?.slug || "Post slug"}
+                </Typography>
+                <Typography variant="h5" component="div" gutterBottom>
+                  <strong> Post format:</strong>    {post?.postFormat || "Post format"}
                 </Typography>
               </CardContent>
             </Card>

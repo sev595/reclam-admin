@@ -82,6 +82,12 @@ const PostsTable: FC<PostsTableProps> = ({ posts }) => {
             <TableRow>
               <TableCell>Title</TableCell>
               <TableCell>Description </TableCell>
+              <TableCell>Post Format </TableCell>
+              <TableCell>Slide Post </TableCell>
+              <TableCell>Date </TableCell>
+              <TableCell>Slug </TableCell>
+              <TableCell>featured </TableCell>
+ 
             </TableRow>
           </TableHead>
           <TableBody>
@@ -98,6 +104,12 @@ const PostsTable: FC<PostsTableProps> = ({ posts }) => {
                     {post.title}
                   </TableCell>
                   <TableCell>{post.description}</TableCell>
+                  <TableCell>{post.postFormat}</TableCell>
+                  <TableCell>{post.slidePost}</TableCell>
+                  <TableCell>{post.date}</TableCell>
+                  <TableCell>{post.slug}</TableCell>
+                  <TableCell>{post.featureImg}</TableCell>
+                  
                   <TableCell>
                     <Box>
                       <IconButton

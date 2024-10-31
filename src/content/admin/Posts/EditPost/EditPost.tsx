@@ -28,9 +28,11 @@ const EditPost: React.FC<EditPostProps> = ({ post }) => {
   const [formData, setFormData] = useState<PostType>(post);
 
   const fieldTypes: { [key in keyof PostType]: string } = {
-    title:'text',
-    description:"text",
-    imageUrl: "text",
+    title: 'text',
+    description: "text",
+    postFormat: "text",
+    date: "text", // Assuming date as string for easier serialization, can be Date if handled as Date objects
+    slug: "text",
   };
 
   const [errors, setErrors] = useState<Partial<PostType>>({});
@@ -45,7 +47,7 @@ const EditPost: React.FC<EditPostProps> = ({ post }) => {
     const formErrors: Partial<PostType> = {};
     Object.keys(formData).forEach((key) => {
       if (!formData[key as keyof PostType]) {
-        formErrors[key as keyof PostType] = "This field is required";
+        formErrors[key as keyof any] = "This field is required";
       }
     });
 
